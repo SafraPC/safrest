@@ -12,6 +12,7 @@ export const view = css`
 	min-height: 90vh;
 	display: flex;
 	margin: 0 auto;
+	margin-bottom:2rem;
 	flex-direction: column;
 	background-color: #fff;
 	border-radius: 0.1rem;
