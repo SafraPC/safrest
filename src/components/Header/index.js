@@ -27,9 +27,9 @@ function Header() {
         </Nav>
         
         <Nav>
-        <NavDropdown alignRight className="headerLinks texts" title="Languages" id="collasible-nav-dropdown">
-            <div  className="dropdown-item">Português</div>
-            <div  className="dropdown-item">Inglês</div>
+        <NavDropdown alignRight className="headerSuperLink texts" title="Languages" id="collasible-nav-dropdown">
+            <div  className="dropdown-item text-center">Português</div>
+            <div  className="dropdown-item text-center">Inglês</div>
           </NavDropdown>
         <Link to="/login">
             <div className="headerLinks">

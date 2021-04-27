@@ -52,12 +52,12 @@
 }
 
 .headerSuperLink {
-  height: 86px !important;
+  min-height: 86px !important;
   padding: 0rem 0.5rem !important;
   display: flex;
+  flex-direction: column;
   text-align: center;
-  align-items: center;
-  background-color: var(--color-primary);
+  background-color: var(--color-freela-pink);
   justify-content: center;
   cursor: pointer;
   position: sticky;
@@ -65,8 +65,8 @@
   color: white !important;
   transition: background-color 0.2s ease-in-out;
   border-radius: 0.2rem;
+  line-height: 30px;
 }
-
 @media (max-width: 995px) {
   .headerStyles {
     height: auto;
