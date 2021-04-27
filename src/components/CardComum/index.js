@@ -1,10 +1,20 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { Card,Image,Details } from './styles';
 
-function CardComum() {
+function CardComum(props) {
   return (
-      
+      <Card color={props.color} >
+       { props.image?
+       <Image>
+          <img src={props.image}/>
+        </Image>:null}
+        <hr></hr>
+        <Details fontColor={props.fontColor}>
+          {props.title?<label>{props.title}</label>:null}
+          {props.text?<span>{props.text}</span>:null}
+        </Details>
+      </Card>
   );
 }
 

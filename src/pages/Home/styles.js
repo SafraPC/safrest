@@ -33,7 +33,15 @@ export const Apresentation = styled.section`
   }
 `;
 export const Content = styled.section`
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  justify-content:center;
+  flex-wrap:wrap;
 
+  > div {
+    :not(:first-child) {
+      margin-left: 1rem;
+    }
+  }
 `;
-
-

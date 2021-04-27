@@ -8,7 +8,7 @@ import { Carousel } from "react-bootstrap";
 
 function HomeCarousel() {
 	return (
-		<Carousel style={{ height: "650px" }}>
+		<Carousel style={{ maxHeight: "650px",height:"100%" }}>
 			<Carousel.Item interval={2500}>
 				<img className="d-block" src={ambient} alt="First slide" />
 			</Carousel.Item>
