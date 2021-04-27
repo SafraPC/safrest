@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import {Link} from 'react-router-dom';
 
-export const Card = styled.div`
+export const Card = styled(Link)`
 background-color:${(props)=>props.color?props.color:"transparent"};
 border-radius:0.3rem;
 padding:1rem;

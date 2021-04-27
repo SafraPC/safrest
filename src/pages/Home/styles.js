@@ -39,7 +39,7 @@ export const Content = styled.section`
   justify-content:center;
   flex-wrap:wrap;
 
-  > div {
+  > a {
     :not(:first-child) {
       margin-left: 1rem;
     }

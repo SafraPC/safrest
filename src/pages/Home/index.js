@@ -45,6 +45,7 @@ function Home() {
         <Content>
           <CardComum
             image={welcome}
+            link="/who_we_are"
             title="Quem Somos ?"
             text="Clique Aqui e Acesse a
         Página quem Somos para Saber mais Sobre Nós!"
@@ -52,6 +53,7 @@ function Home() {
             fontColor="white"
           />
           <CardComum
+            link="/login"
             image={relasionship}
             title="Entre em Nossa Comunidade!"
             text="Faça seu Login , Gerencie suas Maquinas de Lavar,
@@ -60,6 +62,7 @@ function Home() {
             fontColor="white"
           />
             <CardComum
+            link="/work_with_us"
             image={workTogether}
             title="Trabalhe Conosco!"
             text="Preencha um Formulário e nos Envie seu currículo! Quando Abrirmos novas
