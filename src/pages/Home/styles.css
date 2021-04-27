@@ -1,0 +1,8 @@
+:is(.carousel-inner, .carousel-item) {
+  height: 100%;
+}
+.carousel-item img {
+  width: 100%;
+  max-height: 100%;
+  background-size: cover;
+}
