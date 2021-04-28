@@ -2,11 +2,13 @@ import React from "react";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import './styles.css';
-import { useTranslation } from 'react-i18next';
+import i18n from '../../services/i18next';
+const MY_TRANSLATE = "i18nextLng";
 const Header = () => {
-  const { t, i18n } = useTranslation();
+  
   const handleTranslate = (lang)=>{
-    i18n.changeLanguage(lang);
+    localStorage.setItem(MY_TRANSLATE,lang) 
+    window.location = window.location;
   }
 
   return (
@@ -21,7 +23,7 @@ const Header = () => {
         <Nav className="mr-auto">
         <Link to="/who_we_are">
             <div className="headerLinks">
-              <span className="texts">{t('Who_we_are.1')}</span>
+              <span className="texts">{i18n.t('who_we_are.text')}</span>
             </div>
           </Link>   
             <Link to="/work_with_us">
@@ -34,8 +36,8 @@ const Header = () => {
         
         <Nav>
         <NavDropdown alignRight className="headerSuperLink texts" title="Languages" id="collasible-nav-dropdown">
-            <div  className="dropdown-item text-center" onClick={()=>handleTranslate('pt')}>Português</div>
-            <div  className="dropdown-item text-center" onClick={()=>handleTranslate('en')}>Inglês</div>
+            <div  className="dropdown-item text-center" onClick={()=>handleTranslate('pt')}>Português</div> 
+            <div  className="dropdown-item text-center" onClick={()=>handleTranslate('en')}>Inglês</div> 
           </NavDropdown>
         <Link to="/login">
             <div className="headerLinks">
