@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../../components/Header";
-import { Page, ScreenView } from "../../styles/default";
-import Footer from "../../components/Footer";
+import {Header} from "../../components/Header";
+import { Apresentation, Page, ScreenView } from "../../styles/default";
+import {Footer} from "../../components/Footer";
 import HomeCarousel from "./carousel";
-import { Apresentation, Content } from "./styles.js";
+import { Content } from "./styles.js";
 import CardComum from "../../components/CardComum";
 
 //Import images for cards

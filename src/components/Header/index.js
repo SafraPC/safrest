@@ -2,7 +2,7 @@ import React from "react";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import './styles.css';
-function Header() {
+const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" className="headerStyles">
       <Navbar.Brand className="headerTitle ">
@@ -47,4 +47,4 @@ function Header() {
   );
 }
 
-export default Header;
+export {Header};
