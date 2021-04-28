@@ -17,7 +17,6 @@ const ToggleProvider = ({ children }) => {
       }
     }else{
       localStorage.setItem('theme',JSON.stringify(toggle));
-
     }
 
     return(

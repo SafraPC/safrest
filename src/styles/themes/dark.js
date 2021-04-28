@@ -7,7 +7,7 @@ const dark = {
     text:"#fff",
     textColored:"var(--color-soft-blue)",
     headerColor:"var(--color-blackPurple)",
-    bodyColor:"var(--color-blackPurple)",
+    bodyColor:"var(--color-themeBlack)",
 }
 
 export default dark
