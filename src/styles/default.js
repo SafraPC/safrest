@@ -14,7 +14,7 @@ export const view = css`
 	margin: 0 auto;
 	margin-bottom:2rem;
 	flex-direction: column;
-	background-color: #fff;
+	background-color: ${props=>props.theme.background};
 	border-radius: 0.1rem;
 `;
 
@@ -34,7 +34,7 @@ export const Apresentation = styled.section`
     margin: 0 auto;
     font-size: 32px;
     text-transform: uppercase;
-    color: var(--color-soft-blue);
+    color:${props=>props.theme.textColored}
   }
   > hr {
     background-color: var(--color-hover-blue);
@@ -51,7 +51,7 @@ export const Apresentation = styled.section`
     > li {
       font-size: 20px;
       margin-top: 0.5rem;
-      color: var(--color-soft-blue);
+      color: ${props=>props.theme.textColored}
     }
   }
 `;

@@ -6,7 +6,7 @@ margin:0;
 padding:0;
 outline:0;
 box-sizing:border-box;
-
+color:${props=>props.theme.text}
 }
 a {
 text-decoration: none;
@@ -47,11 +47,10 @@ body{
 }
 
 :root {
-    --color-primary: #fff;
+  --color-primary: #fff;
   --color-soft-green: #3dad66;
   --color-soft-red: #e83f5b;
   --color-soft-blue:#668cff;
-
   --color-high-green: #119957;
   --color-high-red: #f51d41;
   --color-hover-blue:#8ba6f7;
@@ -65,6 +64,9 @@ body{
   --font-size-between:21px;
   --font-weight-title: 700;
   --font-size-title: 28px;
+
+  --color-textColor-blue:#668cff;
+
 
 }`;
 
