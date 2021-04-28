@@ -2,7 +2,13 @@ import React from "react";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import './styles.css';
+import { useTranslation } from 'react-i18next';
 const Header = () => {
+  const { t, i18n } = useTranslation();
+  const handleTranslate = (lang)=>{
+    i18n.changeLanguage(lang);
+  }
+
   return (
     <Navbar collapseOnSelect expand="lg" className="headerStyles">
       <Navbar.Brand className="headerTitle ">
@@ -15,7 +21,7 @@ const Header = () => {
         <Nav className="mr-auto">
         <Link to="/who_we_are">
             <div className="headerLinks">
-              <span className="texts">Quem Somos</span>
+              <span className="texts">{t('Who_we_are.1')}</span>
             </div>
           </Link>   
             <Link to="/work_with_us">
@@ -28,8 +34,8 @@ const Header = () => {
         
         <Nav>
         <NavDropdown alignRight className="headerSuperLink texts" title="Languages" id="collasible-nav-dropdown">
-            <div  className="dropdown-item text-center">Português</div>
-            <div  className="dropdown-item text-center">Inglês</div>
+            <div  className="dropdown-item text-center" onClick={()=>handleTranslate('pt')}>Português</div>
+            <div  className="dropdown-item text-center" onClick={()=>handleTranslate('en')}>Inglês</div>
           </NavDropdown>
         <Link to="/login">
             <div className="headerLinks">
