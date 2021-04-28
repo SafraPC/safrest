@@ -1,9 +1,23 @@
+import { headerBR } from "../../components/Header/translate";
+import { footerBR } from "../../components/Footer/translate";
+import {homeBR} from '../../pages/Home/translate';
 export const messages = {
-    pt:{
-       translations:{
-           who_we_are:{
-               text:"Quem Somos"
-           }
-       }
-    }
-  }
+  pt: {
+    translations: {
+      //Home
+      pageHome: {
+        ...homeBR
+      },
+
+      //Header
+      header: {
+        ...headerBR,
+      },
+
+      //Footer
+      footer: {
+        ...footerBR,
+      },
+    },
+  },
+};

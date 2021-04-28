@@ -23,30 +23,32 @@ const Header = () => {
         <Nav className="mr-auto">
         <Link to="/who_we_are">
             <div className="headerLinks">
-              <span className="texts">{i18n.t('who_we_are.text')}</span>
+              <span className="texts">{i18n.t('header.who_we_are.text')}</span>
             </div>
           </Link>   
             <Link to="/work_with_us">
             <div className="headerLinks">
-              <span className="texts">Trabalhe Conosco</span>
+              <span className="texts">{i18n.t('header.work_with_us.text')}</span>
             </div>
           </Link>
           
         </Nav>
         
         <Nav>
-        <NavDropdown alignRight className="headerSuperLink texts" title="Languages" id="collasible-nav-dropdown">
+        <NavDropdown alignRight className="headerSuperLink texts" title={i18n.t('header.languages.text')} id="collasible-nav-dropdown">
             <div  className="dropdown-item text-center" onClick={()=>handleTranslate('pt')}>Português</div> 
             <div  className="dropdown-item text-center" onClick={()=>handleTranslate('en')}>Inglês</div> 
           </NavDropdown>
         <Link to="/login">
             <div className="headerLinks">
-              <span className="texts">Login</span>
+            <span className="texts">{i18n.t('header.login.text')}</span>
+
             </div>
           </Link>   
             <Link to="/register">
             <div className="headerLinks">
-              <span className="texts">Cadastro</span>
+            <span className="texts">{i18n.t('header.register.text')}</span>
+
             </div>
           </Link>
         </Nav>

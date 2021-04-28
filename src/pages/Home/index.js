@@ -10,63 +10,57 @@ import CardComum from "../../components/CardComum";
 import workTogether from "../../assets/svgs/workTogether.svg";
 import relasionship from '../../assets/svgs/relasionship.svg'
 import welcome from '../../assets/svgs/welcome.svg'
+import i18n from "../../services/i18next";
 function Home() {
   return (
     <Page>
       <Header />
       <ScreenView>
         <Apresentation>
-          <label>Nós somos a Safrests!</label>
+          <label>{i18n.t('pageHome.homeHeader.homeWelcome.text')}</label>
           <hr></hr>
           <span>
-            A SAFRESTS é uma empresa que vai te ajudar em todos os assuntos
-            relacionados as maquinas de lavar! Nossas Especialidades :
+          {i18n.t('pageHome.homeHeader.homeSubwelcome.text')}
           </span>
           <ul>
-            <li>Limpeza</li>
-            <li>Montagem</li>
-            <li>Venda</li>
-            <li>Auxílio/Manutenção Técnica</li>
+            <li>{i18n.t('pageHome.homeHeader.homeList.text')}</li>
+            <li>{i18n.t('pageHome.homeHeader.homeList.text2')}</li>
+            <li>{i18n.t('pageHome.homeHeader.homeList.text3')}</li>
+            <li>{i18n.t('pageHome.homeHeader.homeList.text4')}</li>
           </ul>
         </Apresentation>
         <HomeCarousel />
         <br></br>
         <Apresentation>
-          <label>Nossa Apresentação.</label>
+          <label>{i18n.t('pageHome.homeContent.homeWelcome.text')}</label>
           <hr></hr>
-          <span>Vamos fazer você se apaixonar por máquinas de lavar 
-            e com que este seja seu negócio também!
+          <span>{i18n.t('pageHome.homeContent.subWelcome.text')}
           </span>
-          <span>Dessa forma você poderá fazer seu sucesso com o que ama,
-            dedicar-se a felicidade junto as máquinas de lavar roupa e a SAFRESTS, e quem
-             sabe, inovar! 
+          <span>{i18n.t('pageHome.homeContent.subWelcome.text2')}
           </span>
         </Apresentation>
         <Content>
           <CardComum
             image={welcome}
             link="/who_we_are"
-            title="Quem Somos ?"
-            text="Clique Aqui e Acesse a
-        Página quem Somos para Saber mais Sobre Nós!"
+            title={i18n.t('pageHome.homeContent.cards.card.title')}
+            text={i18n.t('pageHome.homeContent.cards.card.text')}
             color="var(--color-hover-blue)"
             fontColor="white"
           />
           <CardComum
             link="/login"
             image={relasionship}
-            title="Entre em Nossa Comunidade!"
-            text="Faça seu Login , Gerencie suas Maquinas de Lavar,
-            Entre em Contato Direto Conosco e Tenha Total Apoio da SAFRESTS!"
+            title={i18n.t('pageHome.homeContent.cards.card2.title')}
+            text={i18n.t('pageHome.homeContent.cards.card2.text')}
             color="var(--color-soft-green)"
             fontColor="white"
           />
             <CardComum
             link="/work_with_us"
             image={workTogether}
-            title="Trabalhe Conosco!"
-            text="Preencha um Formulário e nos Envie seu currículo! Quando Abrirmos novas
-            Vagas Entraremos em Contato!"
+            title={i18n.t('pageHome.homeContent.cards.card3.title')}
+            text={i18n.t('pageHome.homeContent.cards.card3.text')}
             color="var(--color-blackPurple)"
             fontColor="white"
           />
