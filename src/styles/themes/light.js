@@ -7,6 +7,7 @@ const light = {
     text:"#333",
     textColored:"#668cff",
     headerColor:"#668cff",
+    bodyColor:"#edf4f5",
 }
 
 export default light

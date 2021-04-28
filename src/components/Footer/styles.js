@@ -6,7 +6,7 @@ display: flex;
   align-items: center;
   min-height: 80px;
   height:auto;
-  background-color: var(--color-soft-blue);
+  background-color:${props=>props.theme.headerColor};
   padding: 0px 1rem 0px 1rem;
   justify-content:space-between;
   width:100%;

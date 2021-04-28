@@ -42,7 +42,6 @@ font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, '
 body{
     font:14px 'Roboto', sans-serif;
     -webkit-font-font-smoothing: antialiased !important;
-    background:#fcffff;
     color:#333;
 }
 
@@ -56,6 +55,7 @@ body{
   --color-hover-blue:#8ba6f7;
 
   --color-blackPurple:#150f21;
+  --color-themeBlack:#201d29;
   --color-blackWhite:#d6d5d2;
   --color-text: #a8a8b3;
   --font-weigth-text: 400;

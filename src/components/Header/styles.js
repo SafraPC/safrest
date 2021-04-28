@@ -3,7 +3,7 @@ import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 export const MyNavBar = styled(Navbar)`
 	height: 86px;
-	background-color: var(--color-soft-blue);
+	background-color: ${props=>props.theme.headerColor};
 	max-width: 100vw !important;
 	border: 0 !important;
 
@@ -34,6 +34,16 @@ const textsCss = css`
 `;
 
 export const MyNav = styled(Nav)`
+div.switchLinks {
+		height: 86px !important;
+		padding: 0rem 0.5rem !important;
+		display: flex;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		top: 0;
+		border-radius: 0.3rem;
+}
 	div.headerLinks {
 		height: 86px !important;
 		padding: 0rem 0.5rem !important;
