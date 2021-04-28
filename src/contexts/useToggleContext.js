@@ -6,7 +6,19 @@ export const ToggleContext = createContext({});
 
 const ToggleProvider = ({ children }) => {
    
-    const [toggle,setToggle] = useState(light.title);
+  console.log(JSON.parse(localStorage.getItem("theme")))
+    const [toggle,setToggle] = useState();
+    if(!toggle){
+      if(localStorage.getItem('theme')){
+        setToggle(JSON.parse(localStorage.getItem("theme")));
+      }else{
+        setToggle(light);
+        localStorage.setItem('theme',JSON.stringify(light));
+      }
+    }else{
+      localStorage.setItem('theme',JSON.stringify(toggle));
+
+    }
 
     return(
       <ToggleContext.Provider value={{toggle,setToggle}}>

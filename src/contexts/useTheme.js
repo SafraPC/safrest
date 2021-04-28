@@ -9,7 +9,7 @@ const MyThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState({});
 
   useEffect(()=>{
-    setTheme(toggle === "light" ? light : dark);
+    setTheme(toggle.title === "light" ? light : dark);
   },[toggle])
  
 

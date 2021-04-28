@@ -5,6 +5,7 @@ import { MyNav, MyNavBar, MyNavDropdown } from "./styles";
 import Switch from "react-switch";
 import { ToggleContext } from "../../contexts/useToggleContext";
 import dark from "../../styles/themes/dark";
+import light from "../../styles/themes/light";
 const MY_TRANSLATE = "i18nextLng";
 
 
@@ -12,10 +13,10 @@ const Header = () => {
 
 	const {toggle,setToggle} = useContext(ToggleContext);
 	const changeTheme = ()=>{
-		if(toggle === "light"){
-			setToggle('dark')
+		if(toggle.title === "light"){
+			setToggle(dark)
 		}else{
-			setToggle('light')
+			setToggle(light)
 		}
 	}
   const handleTranslate = (lang) => {
@@ -51,7 +52,7 @@ const Header = () => {
           <div className="switchLinks">
             <Switch
               onChange={changeTheme}
-              checked={toggle === "dark"}
+              checked={toggle.title === "dark"}
               checkedIcon={false}
               uncheckedIcon={false}
               height={20}
