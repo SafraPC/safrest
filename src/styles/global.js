@@ -6,10 +6,10 @@ margin:0;
 padding:0;
 outline:0;
 box-sizing:border-box;
-color:${props=>props.theme.text}
+color:${(props) => props.theme.text}
 }
 a {
-text-decoration: none;
+text-decoration: none !important;
 }
 input,textarea {
 border: 1.5px solid var(--color-blackPurple) !important;
@@ -69,4 +69,3 @@ body{
 
 
 }`;
-
