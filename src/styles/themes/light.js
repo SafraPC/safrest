@@ -8,7 +8,9 @@ const light = {
     textColored:"#668cff",
     headerColor:"#668cff",
     bodyColor:"#edf4f5",
-    headerHover:"var(--color-hover-blue)"
+    headerHover:"var(--color-hover-blue)",
+    inputBorder:"#c9c9c9",
+    inputText:"#6e6e6e",
 }
 
 export default light

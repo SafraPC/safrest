@@ -12,12 +12,13 @@ a {
 text-decoration: none !important;
 }
 input,textarea {
-border: 1.5px solid var(--color-blackPurple) !important;
+border: 1.5px solid ${props=>props.theme.inputBorder} !important;
 transition:border 0.3s ease;
+border-radius:0.2rem;
     transition:box-shadow 0.2s ease;
     :focus{
-      border: 1px solid #1e1e1e !important;
-    box-shadow: 1px 1px 3px 1px #2e2e2e;
+    border: 1px solid ${props=>props.theme.inputBorder} !important;
+    box-shadow: 0.2px 0.2px 2.5px ${props=>props.theme.inputBorder};
 }
 }
 button {
