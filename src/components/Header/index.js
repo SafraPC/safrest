@@ -6,8 +6,11 @@ import Switch from "react-switch";
 import { ToggleContext } from "../../contexts/useToggleContext";
 import dark from "../../styles/themes/dark";
 import light from "../../styles/themes/light";
-const MY_TRANSLATE = "i18nextLng";
+import {MdWbSunny} from 'react-icons/md'
+import {FaMoon} from 'react-icons/fa'
 
+
+const MY_TRANSLATE = "i18nextLng";
 
 const Header = () => {
 
@@ -61,6 +64,11 @@ const Header = () => {
               offColor="#ccc"
               onColor="#8ba6f7"
             />
+            <div>
+            {toggle.title !== 'dark'?
+            <MdWbSunny size={25} fill={'yellow'}/>:
+            <FaMoon size={25} fill={'silver'}/>}
+            </div>
           </div>
 
           <MyNavDropdown

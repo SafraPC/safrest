@@ -43,6 +43,12 @@ div.switchLinks {
 		justify-content: center;
 		top: 0;
 		border-radius: 0.3rem;
+		>div{
+			margin-left:1rem;
+		}
+		@media(min-width:1000px){
+		margin-right:2rem;	
+		}
 }
 	div.headerLinks {
 		height: 86px !important;
@@ -58,7 +64,7 @@ div.switchLinks {
 		border-radius: 0.3rem;
 
 		&:hover {
-			background-color: var(--color-hover-blue);
+			background-color: ${props=>props.theme.headerHover};
 		}
 		@media (max-width: 995px) {
 			height: 60px !important;
