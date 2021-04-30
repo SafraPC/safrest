@@ -11,7 +11,22 @@ import { Footer } from "../../components/Footer";
 import i18n from "../../services/i18next";
 import workImage from "../../assets/svgs/interview.svg";
 import { customStyles } from "../../styles/selectStyles";
+import  {cities,states} from '../../services/locations'
+import { useState } from "react";
+import { useEffect } from "react";
 function WorkWithUs() {
+
+  const [cidades,setCidades] = useState([]);
+  const [estados,setEstados] = useState([]);
+  const [selectedState,setSelectedState] = useState({});
+
+  useEffect(()=>{
+    states().then(setEstados).catch(console.error);
+  },[]);
+  useEffect(()=>{
+    if(!selectedState.value)return
+    cities(selectedState.value).then(setCidades).catch(console.error);
+  },[selectedState]);
   return (
     <Page>
       <Header />
@@ -40,22 +55,18 @@ function WorkWithUs() {
               styles={customStyles}
               placeholder={"INSIRA INFORMAÇÃO"}
               noOptionsMessage={()=>"SEM NADA"}
-              options={[
-                // { label: "oi", value: "oi" },
-                // { label: "oie", value: "oir" },
-                // { label: "oie2", value: "oie" },
-              ]}
+              options={estados}
+              onChange={(e)=>{
+                console.log(e);
+                setSelectedState(e)
+              }}
             />
             <span>Cidade</span>
             <MySelect
               styles={customStyles}
               placeholder={"INSIRA INFORMAÇÃO"}
               noOptionsMessage={()=>"SEM NADA"}
-              options={[
-                // { label: "oi", value: "oi" },
-                // { label: "oie", value: "oir" },
-                // { label: "oie2", value: "oie" },
-              ]}
+              options={cidades}
             />
             <span>TEXT EXAMPLE</span>
 
