@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import Select from 'react-select';
 
 export const Page = styled.div`
   width: 100%;
@@ -22,6 +23,12 @@ export const ScreenView = styled.div`
   ${view};
 `;
 
+export const MySelect = styled(Select)`
+>div.css-1fbj37m-control{
+  border-color:${props=>props.theme.inputBorder} !important; 
+}
+`; 
+
 // this view was made for have 2 content, one for left and other for right, like
 //an image and a form. With this design, we can have a better ui for user.
 export const TForm = styled.form`
@@ -30,8 +37,8 @@ export const TForm = styled.form`
   margin-top: 1.5rem;
   display: flex;
   flex-direction: row;
-  @media(max-width:1000px){
-    flex-direction:column;
+  @media (max-width: 1000px) {
+    flex-direction: column;
   }
 
   > div {
@@ -43,12 +50,12 @@ export const TForm = styled.form`
       display: grid;
       width: 90%;
       place-items: center;
-      margin:0 auto;
-      @media(min-width:1000px){
+      margin: 0 auto;
+      @media (min-width: 1000px) {
         border-right: 1px solid var(--color-soft-blue);
       }
-      @media(max-width:1000px){
-        border-bottom:1px solid var(--color-soft-blue);
+      @media (max-width: 1000px) {
+        border-bottom: 1px solid var(--color-soft-blue);
       }
       > label {
         color: var(--color-soft-blue);
@@ -61,7 +68,6 @@ export const TForm = styled.form`
     }
     :not(:first-child) {
       height: 100%;
-      border-radius: 2px;
       display: flex;
       flex-direction: column;
       > label {
@@ -69,37 +75,36 @@ export const TForm = styled.form`
         font-size: 24px;
       }
       > div {
+        width: 75%;
         margin: 0 auto;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        > span {
-          width: 75%;
-          margin: 0 auto;
-          margin-top: 1.5rem;
-          color:${props=>props.theme.inputText};
-          text-align: left;
-        }
-        > input {
-          width: 75%;
-          margin: 0 auto;
-          padding: 0.5rem;
-          margin-top: 1rem;
-        }
-        > button {
-          margin: 0 auto;
-          padding: 0.4rem;
-          border: 1.5px solid ${props=>props.theme.inputBorder} !important;
-          width: 30%;
-          color:${props=>props.theme.inputText};
-          margin-top:2rem;
-          border-radius:0.3rem;
-         transition:background-color 0.3s  ease;
-          :hover{
-           background-color:var(--color-soft-blue);
-           color:white;
-           }
-          
+        margin-top: 1rem;
+      }
+
+      > span {
+        width: 75%;
+        margin: 0 auto;
+        margin-top: 1.5rem;
+        color: ${(props) => props.theme.inputText};
+        text-align: left;
+      }
+      > input {
+        width: 75%;
+        margin: 0 auto;
+        padding: 0.5rem;
+        margin-top: 1rem;
+      }
+      > button {
+        margin: 0 auto;
+        padding: 0.4rem;
+        border: 1.5px solid ${(props) => props.theme.inputBorder} !important;
+        width: 30%;
+        color: ${(props) => props.theme.inputText};
+        margin-top: 2rem;
+        border-radius: 0.3rem;
+        transition: background-color 0.3s ease;
+        :hover {
+          background-color: var(--color-soft-blue);
+          color: white;
         }
       }
     }

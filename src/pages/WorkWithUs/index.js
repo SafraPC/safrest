@@ -1,9 +1,16 @@
 import React from "react";
-import { Apresentation, Page, ScreenView, TForm } from "../../styles/default";
+import {
+  Apresentation,
+  MySelect,
+  Page,
+  ScreenView,
+  TForm,
+} from "../../styles/default";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import i18n from "../../services/i18next";
 import workImage from "../../assets/svgs/interview.svg";
+import { customStyles } from "../../styles/selectStyles";
 function WorkWithUs() {
   return (
     <Page>
@@ -22,22 +29,38 @@ function WorkWithUs() {
           </div>
           {/* Form */}
           <div>
-            <div>
-              <span>TEXT EXAMPLE</span>
+            <span>TEXT EXAMPLE</span>
+            <input type="text" placeholder="Nome" />
+            <span>TEXT EXAMPLE</span>
+            <input type="text" placeholder="Idade" />
+            <span>TEXT EXAMPLE</span>
+            <input type="text" placeholder="Email" />
+            <span>Estado</span>
+            <MySelect
+              styles={customStyles}
+              placeholder={"INSIRA INFORMAÇÃO"}
+              noOptionsMessage={()=>"SEM NADA"}
+              options={[
+                // { label: "oi", value: "oi" },
+                // { label: "oie", value: "oir" },
+                // { label: "oie2", value: "oie" },
+              ]}
+            />
+            <span>Cidade</span>
+            <MySelect
+              styles={customStyles}
+              placeholder={"INSIRA INFORMAÇÃO"}
+              noOptionsMessage={()=>"SEM NADA"}
+              options={[
+                // { label: "oi", value: "oi" },
+                // { label: "oie", value: "oir" },
+                // { label: "oie2", value: "oie" },
+              ]}
+            />
+            <span>TEXT EXAMPLE</span>
 
-              <input type="text" placeholder="Nome" />
-              <span>TEXT EXAMPLE</span>
-              <input type="text" placeholder="Idade" />
-              <span>TEXT EXAMPLE</span>
-              <input type="text" placeholder="Email" />
-              <span>TEXT EXAMPLE</span>
-              <input type="text" placeholder="Estado" />
-              <span>TEXT EXAMPLE</span>
-              <input type="text" placeholder="Cidade" />
-              <span>TEXT EXAMPLE</span>
-              <input type="text" placeholder="Curriculo" />
-              <button type="button">Enviar</button>
-            </div>
+            <input type="text" placeholder="Curriculo" />
+            <button type="button">Enviar</button>
           </div>
         </TForm>
       </ScreenView>

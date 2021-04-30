@@ -18,7 +18,7 @@ border-radius:0.2rem;
     transition:box-shadow 0.2s ease;
     :focus{
     border: 1px solid ${props=>props.theme.inputBorder} !important;
-    box-shadow: 0.2px 0.2px 2.5px ${props=>props.theme.inputBorder};
+    box-shadow: 0.2px 0.2px 2.5px var(--color-soft-blue);
 }
 }
 button {
