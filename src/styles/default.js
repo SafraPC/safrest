@@ -27,6 +27,9 @@ export const MySelect = styled(Select)`
 >div.css-1fbj37m-control{
   border-color:${props=>props.theme.inputBorder} !important; 
 }
+>div >div div.css-1opnhvy-singleValue{
+  color:${props=>props.theme.text} !important;
+}
 `; 
 
 // this view was made for have 2 content, one for left and other for right, like

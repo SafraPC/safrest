@@ -14,11 +14,29 @@ import { customStyles } from "../../styles/selectStyles";
 import  {cities,states} from '../../services/locations'
 import { useState } from "react";
 import { useEffect } from "react";
+import * as yup from 'yup';
+import {workSchema} from '../../validations/workWithUs'
 function WorkWithUs() {
 
   const [cidades,setCidades] = useState([]);
   const [estados,setEstados] = useState([]);
   const [selectedState,setSelectedState] = useState({});
+
+  //form variables
+  const[name,setName] = useState("");
+  const[age,setAge] = useState("");
+  const[email,setEmail] = useState("");
+
+  const sendForm = async (event)=>{
+  event.preventDefault();
+  let formData = {
+    name: name,
+    age: age,
+    email: email,
+  }
+    const isValid = await workSchema.validate(formData);
+  }
+  
 
   useEffect(()=>{
     states().then(setEstados).catch(console.error);
@@ -45,11 +63,11 @@ function WorkWithUs() {
           {/* Form */}
           <div>
             <span>TEXT EXAMPLE</span>
-            <input type="text" placeholder="Nome" />
+            <input type="text" placeholder="Nome" onChange={(e)=>setName(e.target.value)} value={name}/>
             <span>TEXT EXAMPLE</span>
-            <input type="text" placeholder="Idade" />
+            <input type="text" placeholder="Idade" onChange={(e)=>setAge(e.target.value)} value={age}/>
             <span>TEXT EXAMPLE</span>
-            <input type="text" placeholder="Email" />
+            <input type="text" placeholder="Email"onChange={(e)=>setEmail(e.target.value)} value={email}/>
             <span>Estado</span>
             <MySelect
               styles={customStyles}
@@ -71,7 +89,7 @@ function WorkWithUs() {
             <span>TEXT EXAMPLE</span>
 
             <input type="text" placeholder="Curriculo" />
-            <button type="button">Enviar</button>
+            <button type="button" onClick={(e)=>sendForm(e)}>Enviar</button>
           </div>
         </TForm>
       </ScreenView>

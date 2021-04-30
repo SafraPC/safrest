@@ -1,12 +1,13 @@
 const customStyles = {
   menu: (provided, state) => ({
     ...provided,
-    color: "black",
+    color: "#fff !important",
     background: "var(--color-soft-blue) !important",
   }),
 
   option: (styles, props) => ({
     ...styles,
+    color:"#fff !important",
     backgroundColor: props.isDisabled
       ? null
       : props.isSelected

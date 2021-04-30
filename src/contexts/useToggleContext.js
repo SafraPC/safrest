@@ -6,7 +6,6 @@ export const ToggleContext = createContext({});
 
 const ToggleProvider = ({ children }) => {
    
-  console.log(JSON.parse(localStorage.getItem("theme")))
     const [toggle,setToggle] = useState();
     if(!toggle){
       if(localStorage.getItem('theme')){
