@@ -11,40 +11,44 @@ import { Footer } from "../../components/Footer";
 import i18n from "../../services/i18next";
 import workImage from "../../assets/svgs/interview.svg";
 import { customStyles } from "../../styles/selectStyles";
-import  {cities,states} from '../../services/locations'
+import { cities, states } from "../../services/locations";
 import { useState } from "react";
 import { useEffect } from "react";
-import * as yup from 'yup';
-import {workSchema} from '../../validations/workWithUs'
-function WorkWithUs() {
+import * as yup from "yup";
+import { workSchema } from "../../validations/workWithUs";
 
-  const [cidades,setCidades] = useState([]);
-  const [estados,setEstados] = useState([]);
-  const [selectedState,setSelectedState] = useState({});
+
+function WorkWithUs() {
+  const [cidades, setCidades] = useState([]);
+  const [estados, setEstados] = useState([]);
+  const [selectedState, setSelectedState] = useState({});
 
   //form variables
-  const[name,setName] = useState("");
-  const[age,setAge] = useState("");
-  const[email,setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [email, setEmail] = useState("");
 
-  const sendForm = async (event)=>{
-  event.preventDefault();
-  let formData = {
-    name: name,
-    age: age,
-    email: email,
-  }
-    const isValid = await workSchema.validate(formData);
-  }
-  
-
-  useEffect(()=>{
+  useEffect(() => {
     states().then(setEstados).catch(console.error);
-  },[]);
-  useEffect(()=>{
-    if(!selectedState.value)return
+  }, []);
+
+  useEffect(() => {
+    if (!selectedState.value) return;
     cities(selectedState.value).then(setCidades).catch(console.error);
-  },[selectedState]);
+  }, [selectedState]);
+
+  const sendForm = async (event) => {
+    event.preventDefault();
+    let formData = {
+      name: name,
+      age: age,
+      email: email,
+    };
+
+    const isValid = await workSchema.validate(formData);
+    console.log(isValid)
+  };
+
   return (
     <Page>
       <Header />
@@ -61,36 +65,53 @@ function WorkWithUs() {
             <img src={workImage} />
           </div>
           {/* Form */}
-          <div>
+          <form>
             <span>TEXT EXAMPLE</span>
-            <input type="text" placeholder="Nome" onChange={(e)=>setName(e.target.value)} value={name}/>
+            <input
+              type="text"
+              placeholder="Nome"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
             <span>TEXT EXAMPLE</span>
-            <input type="text" placeholder="Idade" onChange={(e)=>setAge(e.target.value)} value={age}/>
+            <input
+              type="text"
+              placeholder="Idade"
+              onChange={(e) => setAge(e.target.value)}
+              value={age}
+            />
             <span>TEXT EXAMPLE</span>
-            <input type="text" placeholder="Email"onChange={(e)=>setEmail(e.target.value)} value={email}/>
+            <input
+              type="text"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
             <span>Estado</span>
             <MySelect
               styles={customStyles}
               placeholder={"INSIRA INFORMAÇÃO"}
-              noOptionsMessage={()=>"SEM NADA"}
+              noOptionsMessage={() => "SEM NADA"}
               options={estados}
-              onChange={(e)=>{
+              onChange={(e) => {
                 console.log(e);
-                setSelectedState(e)
+                setSelectedState(e);
               }}
             />
             <span>Cidade</span>
             <MySelect
               styles={customStyles}
               placeholder={"INSIRA INFORMAÇÃO"}
-              noOptionsMessage={()=>"SEM NADA"}
+              noOptionsMessage={() => "SEM NADA"}
               options={cidades}
             />
             <span>TEXT EXAMPLE</span>
 
             <input type="text" placeholder="Curriculo" />
-            <button type="button" onClick={(e)=>sendForm(e)}>Enviar</button>
-          </div>
+            <button type="button" onClick={(e) => sendForm(e)}>
+              Enviar
+            </button>
+          </form>
         </TForm>
       </ScreenView>
       <Footer />
