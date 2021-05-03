@@ -16,6 +16,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { workSchema } from "../../validations/workTogether";
+import { toast } from "react-toastify";
+import { TOASTIFY_OPTIONS } from "../../styles/toast";
 
 function WorkWithUs() {
   const [cidades, setCidades] = useState([]);
@@ -31,11 +33,9 @@ function WorkWithUs() {
     cities(selectedState.value).then(setCidades).catch(console.error);
   }, [selectedState]);
 
-
   const handleFormSubmit = (values) => {
     console.log(values);
   };
-
   return (
     <Page>
       <Header />
@@ -47,7 +47,7 @@ function WorkWithUs() {
         </Apresentation>
         <TForm>
           <div>
-            <label>Trabalhe Conosco!</label>
+            <label>{i18n.t("pageWWU.image.text")}</label>
             <img src={workImage} />
           </div>
           <Formik
@@ -59,23 +59,23 @@ function WorkWithUs() {
             validationSchema={workSchema}
             onSubmit={handleFormSubmit}
           >
-            {({errors,touched})=>(
+            {({ errors, touched }) => (
               <Form>
-                <span>TEXT EXAMPLE</span>
-                <Field type="text" placeholder="Nome" name="name" />
-                {errors.name && touched.name ? (
-                <span>{errors.name}</span>
-                ) : null}
-                <span>TEXT EXAMPLE</span>
-                <Field type="text" placeholder="Idade" name="age" />
+                <span>{i18n.t("pageWWU.form.secction.label")}</span>
+                <Field type="text" placeholder={i18n.t("pageWWU.form.secction.input")} name="name" />
 
-                <span>TEXT EXAMPLE</span>
-                <Field type="text" placeholder="Email" name="email" />
+                <span>{i18n.t("pageWWU.form.secction2.label")}</span>
 
-                <span>Estado</span>
+                <Field type="text" placeholder={i18n.t("pageWWU.form.secction2.input")} name="age" />
+
+                <span>{i18n.t("pageWWU.form.secction3.label")}</span>
+                <Field type="text" placeholder={i18n.t("pageWWU.form.secction3.input")} name="email" />
+
+                <span>{i18n.t("pageWWU.form.secction4.label")}</span>
+
                 <MySelect
                   styles={customStyles}
-                  placeholder={"INSIRA INFORMAÇÃO"}
+                  placeholder={i18n.t("pageWWU.form.secction4.input")}
                   noOptionsMessage={() => "SEM NADA"}
                   options={estados}
                   onChange={(e) => {
@@ -83,20 +83,22 @@ function WorkWithUs() {
                     setSelectedState(e);
                   }}
                 />
-                <span>Cidade</span>
+                <span>{i18n.t("pageWWU.form.secction5.label")}</span>
+
                 <MySelect
                   styles={customStyles}
-                  placeholder={"INSIRA INFORMAÇÃO"}
+                  placeholder={i18n.t("pageWWU.form.secction5.input")}
                   noOptionsMessage={() => "SEM NADA"}
                   options={cidades}
                 />
-                <span>TEXT EXAMPLE</span>
-                <Field type="text" placeholder="Curriculo" name="curriculo" />
+                <span>{i18n.t("pageWWU.form.secction6.label")}</span>
 
-                <button type="submit">Enviar</button>
+                <Field type="text" placeholder={i18n.t("pageWWU.form.secction6.label")} name="curriculo" />
+
+
+                <button type="submit">{i18n.t("pageWWU.form.buttonSend.text")}</button>
               </Form>
             )}
-              
           </Formik>
         </TForm>
       </ScreenView>
