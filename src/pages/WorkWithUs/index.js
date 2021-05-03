@@ -15,18 +15,12 @@ import { cities, states } from "../../services/locations";
 import { useState } from "react";
 import { useEffect } from "react";
 import * as yup from "yup";
-import { workSchema } from "../../validations/workWithUs";
-
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 function WorkWithUs() {
   const [cidades, setCidades] = useState([]);
   const [estados, setEstados] = useState([]);
   const [selectedState, setSelectedState] = useState({});
-
-  //form variables
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [email, setEmail] = useState("");
 
   useEffect(() => {
     states().then(setEstados).catch(console.error);
@@ -37,16 +31,18 @@ function WorkWithUs() {
     cities(selectedState.value).then(setCidades).catch(console.error);
   }, [selectedState]);
 
-  const sendForm = async (event) => {
-    event.preventDefault();
-    let formData = {
-      name: name,
-      age: age,
-      email: email,
-    };
+  const workSchema2 = yup.object().shape({
+    name: yup
+      .string("Need to be an Text!")
+      .min(4, "Min text is 4!")
+      .max(30, "Max Text is 30!")
+      .required(),
+    age: yup.string().required().max(3).min(1),
+    email: yup.string().email().required(),
+  });
 
-    const isValid = await workSchema.validate(formData);
-    console.log(isValid)
+  const handleFormSubmit = (values) => {
+    console.log(values);
   };
 
   return (
@@ -59,59 +55,56 @@ function WorkWithUs() {
           <span>{i18n.t("pageWWU.header.welcome.subtext")}</span>
         </Apresentation>
         <TForm>
-          {/* Image Content */}
           <div>
             <label>Trabalhe Conosco!</label>
             <img src={workImage} />
           </div>
-          {/* Form */}
-          <form>
-            <span>TEXT EXAMPLE</span>
-            <input
-              type="text"
-              placeholder="Nome"
-              onChange={(e) => setName(e.target.value)}
-              value={name}
-            />
-            <span>TEXT EXAMPLE</span>
-            <input
-              type="text"
-              placeholder="Idade"
-              onChange={(e) => setAge(e.target.value)}
-              value={age}
-            />
-            <span>TEXT EXAMPLE</span>
-            <input
-              type="text"
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-            <span>Estado</span>
-            <MySelect
-              styles={customStyles}
-              placeholder={"INSIRA INFORMAÇÃO"}
-              noOptionsMessage={() => "SEM NADA"}
-              options={estados}
-              onChange={(e) => {
-                console.log(e);
-                setSelectedState(e);
-              }}
-            />
-            <span>Cidade</span>
-            <MySelect
-              styles={customStyles}
-              placeholder={"INSIRA INFORMAÇÃO"}
-              noOptionsMessage={() => "SEM NADA"}
-              options={cidades}
-            />
-            <span>TEXT EXAMPLE</span>
+          <Formik
+            initialValues={{
+              name: "",
+              age: "",
+              email: "",
+            }}
+            validationSchema={workSchema2}
+            onSubmit={handleFormSubmit}
+          >
+              <Form>
+                <span>TEXT EXAMPLE</span>
+                <Field type="text" placeholder="Nome" name="name" />
+                <ErrorMessage component="p" name="name" />
 
-            <input type="text" placeholder="Curriculo" />
-            <button type="button" onClick={(e) => sendForm(e)}>
-              Enviar
-            </button>
-          </form>
+                <span>TEXT EXAMPLE</span>
+                <Field type="text" placeholder="Idade" name="age" />
+                <ErrorMessage component="p" name="age" />
+
+                <span>TEXT EXAMPLE</span>
+                <Field type="text" placeholder="Email" name="email" />
+                <ErrorMessage component="p" name="email" />
+
+                <span>Estado</span>
+                <MySelect
+                  styles={customStyles}
+                  placeholder={"INSIRA INFORMAÇÃO"}
+                  noOptionsMessage={() => "SEM NADA"}
+                  options={estados}
+                  onChange={(e) => {
+                    console.log(e);
+                    setSelectedState(e);
+                  }}
+                />
+                <span>Cidade</span>
+                <MySelect
+                  styles={customStyles}
+                  placeholder={"INSIRA INFORMAÇÃO"}
+                  noOptionsMessage={() => "SEM NADA"}
+                  options={cidades}
+                />
+                {/* <span>TEXT EXAMPLE</span>
+                <Field type="text" placeholder="Curriculo" /> */}
+
+                <button type="submit">Enviar</button>
+              </Form>
+          </Formik>
         </TForm>
       </ScreenView>
       <Footer />
