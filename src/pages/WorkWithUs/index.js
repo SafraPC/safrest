@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Apresentation,
+  MyField,
   MySelect,
   Page,
   ScreenView,
@@ -14,7 +15,7 @@ import { customStyles } from "../../styles/selectStyles";
 import { cities, states } from "../../services/locations";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import { workSchema } from "../../validations/workTogether";
 import { toast } from "react-toastify";
 import { TOASTIFY_OPTIONS } from "../../styles/toast";
@@ -62,14 +63,20 @@ function WorkWithUs() {
             {({ errors, touched }) => (
               <Form>
                 <span>{i18n.t("pageWWU.form.secction.label")}</span>
-                <Field type="text" placeholder={i18n.t("pageWWU.form.secction.input")} name="name" />
+                <MyField error={
+                  errors.name  && touched.name? true:false
+                } type="text" placeholder={i18n.t("pageWWU.form.secction.input")} name="name" />
 
                 <span>{i18n.t("pageWWU.form.secction2.label")}</span>
 
-                <Field type="text" placeholder={i18n.t("pageWWU.form.secction2.input")} name="age" />
+                <MyField error={
+                  errors.age  && touched.age? true:false
+                } type="text" placeholder={i18n.t("pageWWU.form.secction2.input")} name="age" />
 
                 <span>{i18n.t("pageWWU.form.secction3.label")}</span>
-                <Field type="text" placeholder={i18n.t("pageWWU.form.secction3.input")} name="email" />
+                <MyField error={
+                  errors.email  && touched.email? true:false
+                } type="text" placeholder={i18n.t("pageWWU.form.secction3.input")} name="email" />
 
                 <span>{i18n.t("pageWWU.form.secction4.label")}</span>
 
@@ -93,7 +100,7 @@ function WorkWithUs() {
                 />
                 <span>{i18n.t("pageWWU.form.secction6.label")}</span>
 
-                <Field type="text" placeholder={i18n.t("pageWWU.form.secction6.label")} name="curriculo" />
+                <MyField type="text" placeholder={i18n.t("pageWWU.form.secction6.label")} name="curriculo" />
 
 
                 <button type="submit">{i18n.t("pageWWU.form.buttonSend.text")}</button>

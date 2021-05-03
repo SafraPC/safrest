@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
-import Select from 'react-select';
+import Select from "react-select";
+import { Field } from "formik";
 
 export const Page = styled.div`
   width: 100%;
@@ -24,13 +25,13 @@ export const ScreenView = styled.div`
 `;
 
 export const MySelect = styled(Select)`
->div.css-1fbj37m-control{
-  border-color:${props=>props.theme.inputBorder} !important; 
-}
->div >div div.css-1opnhvy-singleValue{
-  color:${props=>props.theme.text} !important;
-}
-`; 
+  > div.css-1fbj37m-control {
+    border-color: ${(props) => props.theme.inputBorder} !important;
+  }
+  > div > div div.css-1opnhvy-singleValue {
+    color: ${(props) => props.theme.text} !important;
+  }
+`;
 
 // this view was made for have 2 content, one for left and other for right, like
 //an image and a form. With this design, we can have a better ui for user.
@@ -44,73 +45,78 @@ export const TForm = styled.section`
   @media (max-width: 1000px) {
     flex-direction: column;
   }
-    >div{
-      text-align: center;
-      display: grid;
+  > div {
+    text-align: center;
+    display: grid;
+    width: 100%;
+    place-items: center;
+    margin: 0 auto;
+
+    @media (min-width: 1000px) {
+      border-right: 1px solid var(--color-soft-blue);
+    }
+    @media (max-width: 1000px) {
+      border-bottom: 1px solid var(--color-soft-blue);
+    }
+
+    > label {
+      color: var(--color-soft-blue);
+      font-size: 24px;
+    }
+    > img {
+      height: 70%;
       width: 100%;
-      place-items: center;
+    }
+  }
+  > form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    > label {
+      color: var(--color-primary);
+      font-size: 24px;
+    }
+    > div {
+      width: 75%;
       margin: 0 auto;
+      margin-top: 1rem;
+    }
 
-      @media (min-width: 1000px) {
-        border-right: 1px solid var(--color-soft-blue);
-      }
-      @media (max-width: 1000px) {
-        border-bottom: 1px solid var(--color-soft-blue);
-      }
-
-      > label {
-        color: var(--color-soft-blue);
-        font-size: 24px;
-      }
-      > img {
-        height: 70%;
-        width: 100%;
+    > span {
+      width: 75%;
+      margin: 0 auto;
+      margin-top: 1.5rem;
+      color: ${(props) => props.theme.inputText};
+      text-align: left;
+    }
+    > input {
+      width: 75%;
+      margin: 0 auto;
+      padding: 0.5rem;
+      margin-top: 1rem;
+    }
+    > button {
+      margin: 0 auto;
+      padding: 0.4rem;
+      border: 1.5px solid ${(props) => props.theme.inputBorder} !important;
+      width: 30%;
+      color: ${(props) => props.theme.inputText};
+      margin-top: 2rem;
+      border-radius: 0.3rem;
+      transition: background-color 0.3s ease;
+      :hover {
+        background-color: var(--color-soft-blue);
+        color: white;
       }
     }
-    >form {
-      height: 100%;
-      width:100%;
-      display: flex;
-      flex-direction: column;
-      > label {
-        color: var(--color-primary);
-        font-size: 24px;
-      }
-      > div {
-        width: 75%;
-        margin: 0 auto;
-        margin-top: 1rem;
-      }
+  }
+  //Props for div
+`;
 
-      > span {
-        width: 75%;
-        margin: 0 auto;
-        margin-top: 1.5rem;
-        color: ${(props) => props.theme.inputText};
-        text-align: left;
-      }
-      > input {
-        width: 75%;
-        margin: 0 auto;
-        padding: 0.5rem;
-        margin-top: 1rem;
-      }
-      > button {
-        margin: 0 auto;
-        padding: 0.4rem;
-        border: 1.5px solid ${(props) => props.theme.inputBorder} !important;
-        width: 30%;
-        color: ${(props) => props.theme.inputText};
-        margin-top: 2rem;
-        border-radius: 0.3rem;
-        transition: background-color 0.3s ease;
-        :hover {
-          background-color: var(--color-soft-blue);
-          color: white;
-        }
-      }
-    }
-    //Props for div
+export const MyField = styled(Field)`
+  border-color: ${(props) =>
+    props.error === true ? "var(--color-high-red)" : ""} !important;
 `;
 
 //All Pages that needs to have an Apresentation
