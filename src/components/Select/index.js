@@ -12,7 +12,6 @@ export default function MineSelect(props) {
 	};
 
 	return (
-		<div>
 			<MySelect
 				error={props.error && props.touched}
 				styles={customStyles}
@@ -22,6 +21,5 @@ export default function MineSelect(props) {
 				onChange={handleChange}
 				onBlur={handleBlur}
 			/>
-		</div>
 	);
 }
