@@ -111,7 +111,7 @@ const MyForm = (props) => {
         <label htmlFor="myCV">{i18n.t("pageWWU.form.secction6.label")}</label>
         <input error={"oie"} type="file" id="myCV" />
       </section>
-     <FileCard title="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!"/>
+     <FileCard title="Teste!" handleClose={()=>(console.log('oii'))} extension={'jpg'}/>
       <button type="submit">{i18n.t("pageWWU.form.buttonSend.text")}</button>
     </form>
   );

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   margin-top: 1.5rem !important;
-  width: 55% !important;
+  width: 30% !important;
   border: 1px solid ${(props) => props.theme.inputBorder};
   border-radius: 0.2rem;
   padding: 0.5rem;
@@ -13,8 +13,13 @@ export const CloseButton = styled.div`
   max-width: 30px;
 `;
 
+export const MyImage = styled.div`
+display:flex !important;
+justify-content:center;
+`;
+
 export const Description = styled.div`
-  margin-top: 0.5rem;
+  margin-top: 1rem !important;
   padding: 0.5rem;
   text-align: center;
   margin: 0 auto;
