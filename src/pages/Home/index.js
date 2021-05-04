@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import {Header} from "../../components/Header";
 import { Apresentation, Page, ScreenView } from "../../styles/default";
 import {Footer} from "../../components/Footer";
@@ -11,10 +11,8 @@ import workTogether from "../../assets/svgs/workTogether.svg";
 import relasionship from '../../assets/svgs/relasionship.svg'
 import welcome from '../../assets/svgs/welcome.svg'
 import i18n from "../../services/i18next";
-import { ToggleContext } from "../../contexts/useToggleContext";
 function Home() {
 
-  const {toggle,setToggle} = useContext(ToggleContext);
  
   return (
     <Page>

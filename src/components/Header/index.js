@@ -24,7 +24,7 @@ const Header = () => {
 	}
   const handleTranslate = (lang) => {
     localStorage.setItem(MY_TRANSLATE, lang);
-    window.location = window.location;
+    window.location = window.location.href
   };
 
   return (

@@ -17,8 +17,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Formik, Form } from "formik";
 import { workSchema } from "../../validations/workTogether";
-import { toast } from "react-toastify";
-import { TOASTIFY_OPTIONS } from "../../styles/toast";
 
 function WorkWithUs() {
   const [cidades, setCidades] = useState([]);
@@ -49,7 +47,7 @@ function WorkWithUs() {
         <TForm>
           <div>
             <label>{i18n.t("pageWWU.image.text")}</label>
-            <img src={workImage} />
+            <img src={workImage} alt="CardMage" />
           </div>
           <Formik
             initialValues={{
@@ -64,18 +62,18 @@ function WorkWithUs() {
               <Form>
                 <span>{i18n.t("pageWWU.form.secction.label")}</span>
                 <MyField error={
-                  errors.name  && touched.name? true:false
+                  errors.name && touched.name
                 } type="text" placeholder={i18n.t("pageWWU.form.secction.input")} name="name" />
 
                 <span>{i18n.t("pageWWU.form.secction2.label")}</span>
 
                 <MyField error={
-                  errors.age  && touched.age? true:false
+                errors.age && touched.age
                 } type="text" placeholder={i18n.t("pageWWU.form.secction2.input")} name="age" />
 
                 <span>{i18n.t("pageWWU.form.secction3.label")}</span>
                 <MyField error={
-                  errors.email  && touched.email? true:false
+                 errors.email && touched.email 
                 } type="text" placeholder={i18n.t("pageWWU.form.secction3.input")} name="email" />
 
                 <span>{i18n.t("pageWWU.form.secction4.label")}</span>

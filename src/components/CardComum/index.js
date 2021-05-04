@@ -7,7 +7,7 @@ function CardComum(props) {
     <Card color={props.color} to={props.link}>
       {props.image ? (
         <Image>
-          <img src={props.image} />
+          <img src={props.image} alt="Card" />
         </Image>
       ) : null}
       <hr></hr>

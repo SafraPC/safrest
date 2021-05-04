@@ -6,6 +6,6 @@ export  const workSchema =  yup.object().shape({
       .min(4, "Min text is 4!")
       .max(30, "Max Text is 30!")
       .required("Nome é requirido!"),
-    age: yup.string().required().max(3).min(1),
+    age: yup.string().required().min(1).max(2),
     email: yup.string().email().required(),
   });
