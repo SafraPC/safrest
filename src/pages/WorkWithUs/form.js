@@ -38,6 +38,7 @@ const MyForm = (props) => {
         {i18n.t("pageWWU.form.secction.label")}
         <Req>*</Req>
       </span>
+
       <MyField
         error={errors.name && touched.name}
         type="text"
@@ -47,7 +48,7 @@ const MyForm = (props) => {
         onChange={handleChange}
         onBlur={handleBlur}
       />
-
+    
       <span>
         {i18n.t("pageWWU.form.secction2.label")}
         <Req>*</Req>
@@ -111,7 +112,7 @@ const MyForm = (props) => {
         <label htmlFor="myCV">{i18n.t("pageWWU.form.secction6.label")}</label>
         <input error={"oie"} type="file" id="myCV" />
       </section>
-     <FileCard title="Teste!" handleClose={()=>(console.log('oii'))} extension={'jpg'}/>
+     <FileCard  handleClose={()=>(console.log('oii'))} extension={'jpg'}/>
       <button type="submit">{i18n.t("pageWWU.form.buttonSend.text")}</button>
     </form>
   );

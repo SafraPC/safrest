@@ -50,7 +50,6 @@ export const TForm = styled.section`
   }
   > div {
     text-align: center;
-    display: grid;
     width: 100%;
     place-items: center;
     margin: 0 auto;
