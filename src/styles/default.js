@@ -26,7 +26,10 @@ export const ScreenView = styled.div`
 
 export const MySelect = styled(Select)`
   > div.css-1fbj37m-control {
-    border-color: ${(props) => props.theme.inputBorder} !important;
+    border-color: ${(props) =>
+      props.error
+        ? "var(--color-high-red)"
+        : props.theme.inputBorder} !important;
   }
   > div > div div.css-1opnhvy-singleValue {
     color: ${(props) => props.theme.text} !important;
@@ -112,6 +115,12 @@ export const TForm = styled.section`
     }
   }
   //Props for div
+`;
+export const Req = styled.text`
+  font-size: 18px;
+  color: var(--color-high-red);
+  font-style: bold;
+  margin-left: 0.5rem;
 `;
 
 export const MyField = styled(Field)`

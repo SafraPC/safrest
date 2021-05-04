@@ -4,6 +4,7 @@ import {
   MyField,
   MySelect,
   Page,
+  Req,
   ScreenView,
   TForm,
 } from "../../styles/default";
@@ -18,11 +19,12 @@ import { useEffect } from "react";
 import { Formik, Form } from "formik";
 import { workSchema } from "../../validations/workTogether";
 
-function WorkWithUs() {
+const WorkWithUs = () => {
   const [cidades, setCidades] = useState([]);
   const [estados, setEstados] = useState([]);
   const [selectedState, setSelectedState] = useState({});
-
+  const [selectedCity, setSelectedCity] = useState({});
+  const [firstRender,setFirstRender] = useState(true)
   useEffect(() => {
     states().then(setEstados).catch(console.error);
   }, []);
@@ -33,6 +35,7 @@ function WorkWithUs() {
   }, [selectedState]);
 
   const handleFormSubmit = (values) => {
+    setFirstRender(false);
     console.log(values);
   };
   return (
@@ -54,54 +57,94 @@ function WorkWithUs() {
               name: "",
               age: "",
               email: "",
+              state:"",
+              city:"",
             }}
             validationSchema={workSchema}
             onSubmit={handleFormSubmit}
           >
             {({ errors, touched }) => (
               <Form>
-                <span>{i18n.t("pageWWU.form.secction.label")}</span>
-                <MyField error={
-                  errors.name && touched.name
-                } type="text" placeholder={i18n.t("pageWWU.form.secction.input")} name="name" />
+                <span>
+                  {i18n.t("pageWWU.form.secction.label")}
+                  <Req>*</Req>
+                </span>
+                <MyField
+                  error={errors.name && touched.name}
+                  type="text"
+                  placeholder={i18n.t("pageWWU.form.secction.input")}
+                  name="name"
+                />
 
-                <span>{i18n.t("pageWWU.form.secction2.label")}</span>
+                <span>
+                  {i18n.t("pageWWU.form.secction2.label")}
+                  <Req>*</Req>
+                </span>
 
-                <MyField error={
-                errors.age && touched.age
-                } type="text" placeholder={i18n.t("pageWWU.form.secction2.input")} name="age" />
+                <MyField
+                  error={errors.age && touched.age}
+                  type="text"
+                  placeholder={i18n.t("pageWWU.form.secction2.input")}
+                  name="age"
+                />
 
-                <span>{i18n.t("pageWWU.form.secction3.label")}</span>
-                <MyField error={
-                 errors.email && touched.email 
-                } type="text" placeholder={i18n.t("pageWWU.form.secction3.input")} name="email" />
+                <span>
+                  {i18n.t("pageWWU.form.secction3.label")}
+                  <Req>*</Req>
+                </span>
+                <MyField
+                  error={errors.email && touched.email}
+                  type="text"
+                  placeholder={i18n.t("pageWWU.form.secction3.input")}
+                  name="email"
+                />
 
-                <span>{i18n.t("pageWWU.form.secction4.label")}</span>
+                <span>
+                  {i18n.t("pageWWU.form.secction4.label")}
+                  <Req>*</Req>
+                </span>
 
                 <MySelect
                   styles={customStyles}
+                  error={errors.state && touched.state}
                   placeholder={i18n.t("pageWWU.form.secction4.input")}
-                  noOptionsMessage={() => "SEM NADA"}
+                  noOptionsMessage={() => "Not to see here.."}
                   options={estados}
                   onChange={(e) => {
-                    console.log(e);
                     setSelectedState(e);
                   }}
+                  name="state"
                 />
-                <span>{i18n.t("pageWWU.form.secction5.label")}</span>
+                <span>
+                  {i18n.t("pageWWU.form.secction5.label")}
+                  <Req>*</Req>
+                </span>
 
                 <MySelect
+                  error={errors.city && touched.city}
                   styles={customStyles}
                   placeholder={i18n.t("pageWWU.form.secction5.input")}
-                  noOptionsMessage={() => "SEM NADA"}
+                  noOptionsMessage={() => "Not to see here.."}
                   options={cidades}
+                  onChange={(e) => {
+                    setSelectedCity(e);
+                  }}
+                  name="city"
                 />
-                <span>{i18n.t("pageWWU.form.secction6.label")}</span>
+                <span>
+                  {i18n.t("pageWWU.form.secction6.label")}
+                  <Req>*</Req>
+                </span>
 
-                <MyField type="text" placeholder={i18n.t("pageWWU.form.secction6.label")} name="curriculo" />
+                <MyField
+                  type="text"
+                  placeholder={i18n.t("pageWWU.form.secction6.label")}
+                  name="curriculo"
+                />
 
-
-                <button type="submit">{i18n.t("pageWWU.form.buttonSend.text")}</button>
+                <button type="submit">
+                  {i18n.t("pageWWU.form.buttonSend.text")}
+                </button>
               </Form>
             )}
           </Formik>
@@ -110,6 +153,6 @@ function WorkWithUs() {
       <Footer />
     </Page>
   );
-}
+};
 
 export default WorkWithUs;

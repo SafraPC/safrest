@@ -8,4 +8,8 @@ export  const workSchema =  yup.object().shape({
       .required("Nome é requirido!"),
     age: yup.string().required().min(1).max(2),
     email: yup.string().email().required(),
+    
+    state: yup.string().ensure().required(),
+    
+
   });
