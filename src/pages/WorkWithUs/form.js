@@ -23,6 +23,9 @@ const MyForm = (props) => {
   const [cidades, setCidades] = useState([]);
   const [estados, setEstados] = useState([]);
 
+  //Get file from input 
+  const [cv,setCv] = useState();
+
   useEffect(() => {
     states().then(setEstados).catch(console.error);
   }, []);
@@ -98,6 +101,7 @@ const MyForm = (props) => {
         {i18n.t("pageWWU.form.secction5.label")}
         <Req>*</Req>
       </span>
+
       <MineSelect
         name="city"
         value={values.city}
@@ -108,10 +112,11 @@ const MyForm = (props) => {
         options={cidades}
         translateText={i18n.t("pageWWU.form.secction5.input")}
       />
-      <section error={"oie"}>
+      <section>
         <label htmlFor="myCV">{i18n.t("pageWWU.form.secction6.label")}</label>
-        <input error={"oie"} type="file" id="myCV" />
+        <input type="file" id="myCV" onChange={(e)=>setCv(e.target.files[0])} />
       </section>
+     
      <FileCard  handleClose={()=>(console.log('oii'))} extension={'jpg'}/>
       <button type="submit">{i18n.t("pageWWU.form.buttonSend.text")}</button>
     </form>

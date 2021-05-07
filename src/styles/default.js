@@ -137,7 +137,7 @@ export const TForm = styled.section`
   }
   //Props for div
 `;
-export const Req = styled.text`
+export const Req = styled.span`
   font-size: 18px;
   color: var(--color-high-red);
   font-style: bold;
