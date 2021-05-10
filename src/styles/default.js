@@ -67,6 +67,7 @@ export const TForm = styled.section`
     }
 
     > img {
+      padding:1rem;
       height: 70%;
       width: 100%;
     }

@@ -37,7 +37,7 @@ const Header = () => {
       <MyNavBar.Toggle aria-controls="responsive-navbar-nav" />
       <MyNavBar.Collapse id="responsive-navbar-nav">
         <MyNav className="mr-auto">
-          <Link to="/who_we_are">
+          <Link to="/">
             <div className="headerLinks">
               <span className="texts">{i18n.t("header.who_we_are.text")}</span>
             </div>
@@ -90,14 +90,9 @@ const Header = () => {
               Inglês
             </div>
           </MyNavDropdown>
-          <Link to="/login">
+          <Link to="/contact">
             <div className="headerLinks">
-              <span className="texts">{i18n.t("header.login.text")}</span>
-            </div>
-          </Link>
-          <Link to="/register">
-            <div className="headerLinks">
-              <span className="texts">{i18n.t("header.register.text")}</span>
+              <span className="texts">{i18n.t("header.contact.text")}</span>
             </div>
           </Link>
         </MyNav>

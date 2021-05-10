@@ -5,11 +5,8 @@
       work_with_us: {
         text: "Work With Us",
       },
-      login: {
-        text: "Sing in",
-      },
-      register: {
-        text: "Sing up",
+      contact:{
+        text:"Contact"
       },
       languages: {
         text: "Languages",
@@ -19,16 +16,13 @@
     who_we_are: {
         text: "Quem Somos",
       },
-
+      contact:{
+        text:"Contato"
+      },
       work_with_us: {
         text: "Trabalhe Conosco",
       },
-      login: {
-        text: "Login",
-      },
-      register: {
-        text: "Cadastro",
-      },
+    
       languages: {
         text: "Idiomas",
       },
