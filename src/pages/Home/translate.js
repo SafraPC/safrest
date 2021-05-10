@@ -27,12 +27,12 @@ const homeBR ={
               cards:{
                   card:{
                     title:"Quem Somos ?",
-                    text:"Clique Aqui e Acesse a"+
-                    "Página quem Somos para Saber mais Sobre Nós!"
+                    text:"Você está Acessando a Página Quem Somos! "+
+                    "Em Resumo é isso! Caso tenha alguma dúvida entre em contato na página contato."
                   },
                   card2:{
-                    title:"Entre em Nossa Comunidade!",
-                    text:"Faça seu Login , Gerencie suas Maquinas de Lavar,"+
+                    title:"Entre em Contato Conosco!",
+                    text:"Caso Tenha Alguma Dúvida, "+
                    "Entre em Contato Direto Conosco e Tenha Total Apoio da SAFRESTS!"
                   },
                   card3:{
@@ -72,13 +72,13 @@ const homeEN ={
         cards:{
             card:{
               title:"Who we are ?",
-              text:"Click Here and Access the"+
-              "Who we are page to know more about us!"
+              text:"You are Accessing the Who We Are Page! "+
+              "In summary, that's it! If you have any questions, contact us on the contact page."
             },
             card2:{
               title:"Join Our Community!",
-              text:"Login, Manage your Washing Machines,"+
-             "Contact us directly and have full support from SAFRESTS!"
+              text:"If you have any questions, "+
+              "Contact Us Directly and Get Total Support from SAFRESTS!"
             },
             card3:{
               title:"Work with us!",

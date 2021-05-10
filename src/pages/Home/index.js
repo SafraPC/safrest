@@ -44,14 +44,14 @@ function Home() {
         <Content>
           <CardComum
             image={welcome}
-            link="/who_we_are"
+            link="/"
             title={i18n.t('pageHome.homeContent.cards.card.title')}
             text={i18n.t('pageHome.homeContent.cards.card.text')}
             color="var(--color-hover-blue)"
             fontColor="white"
           />
           <CardComum
-            link="/login"
+            link="/contact"
             image={relasionship}
             title={i18n.t('pageHome.homeContent.cards.card2.title')}
             text={i18n.t('pageHome.homeContent.cards.card2.text')}
