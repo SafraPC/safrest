@@ -1,24 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { CloseButton, Container, Description,MyImage } from "./styles";
-import { AiOutlineCloseCircle,AiFillFileImage,AiFillFilePdf,AiFillFileWord } from "react-icons/ai";
+import { CloseButton, Container, Description, MyImage } from "./styles";
+import {
+  AiOutlineCloseCircle,
+  AiFillFileImage,
+  AiFillFilePdf,
+  AiFillFileWord,
+} from "react-icons/ai";
 function FileCard(props) {
-  return props.title ? (
+  const [myCV, setMyCV] = useState();
+  useEffect(() => {
+    setMyCV(props.myFile);
+  }, [props.myFile]);
+
+  return myCV ? (
     <Container>
-      <CloseButton onClick={()=>props.handleClose()}>
+      <CloseButton onClick={() => props.handleClose()}>
         <AiOutlineCloseCircle size={25} fill="var(--color-high-red)" />
       </CloseButton>
       <MyImage>
-      {props.extension === "jpg"
-        ? <AiFillFileImage size={75}/>
-        : props.extension === "pdf"
-        ? <AiFillFilePdf size={75}/>
-        : props.extension === "docx"
-        ? <AiFillFileWord size={75}/>
-        : null}
+        {myCV.type === "application/pdf" ? (
+          <AiFillFilePdf size={75} />
+        ) : myCV.type === "application/msword" ||
+        myCV.type ===
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ? (
+          <AiFillFileWord size={75} />
+        ) : (
+          <AiFillFileImage size={75} />
+        )}
       </MyImage>
       <Description>
-        <label>{props.title}</label>
+        <label>{myCV.name}</label>
       </Description>
     </Container>
   ) : null;

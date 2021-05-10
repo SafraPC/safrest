@@ -117,7 +117,7 @@ const MyForm = (props) => {
         <input type="file" id="myCV" onChange={(e)=>setCv(e.target.files[0])} />
       </section>
      
-     <FileCard  handleClose={()=>(console.log('oii'))} extension={'jpg'}/>
+     <FileCard  myFile={cv} handleClose={()=>(setCv(undefined))}/>
       <button type="submit">{i18n.t("pageWWU.form.buttonSend.text")}</button>
     </form>
   );
