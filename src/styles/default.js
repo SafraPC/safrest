@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import Select from "react-select";
-import { Field } from "formik";
 
 export const Page = styled.div`
   width: 100%;
