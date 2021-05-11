@@ -43,8 +43,8 @@ console.log(values)
 
   const handleErrors = ()=>{
     if(Object.values(errors).length){
-      if(!cv || cv === undefined){
-        toast.error(i18n.t('pageWWU.form.errors.seeAll.text')+"\n"+i18n.t('pageWWU.form.errors.cv.text'),TOASTIFY_OPTIONS)
+      if(!cv || cv === undefined){ 
+        toast.error(i18n.t('pageWWU.form.errors.seeAll.text')+"\n , "+i18n.t('pageWWU.form.errors.cv.text'),TOASTIFY_OPTIONS)
       }else{
         toast.error(i18n.t('pageWWU.form.errors.seeAll.text'),TOASTIFY_OPTIONS)
       }
