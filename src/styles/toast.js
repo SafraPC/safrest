@@ -5,5 +5,5 @@ export const TOASTIFY_OPTIONS={
   closeOnClick: true,
   pauseOnHover: true,
   draggable: false,
-  style: { fontSize: 16 }
+  style: { fontSize: 16}
 }

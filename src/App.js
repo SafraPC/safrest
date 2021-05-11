@@ -11,7 +11,7 @@ function App() {
     <>
       <ToggleProvider>
         <MyThemeProvider>
-          <ToastContainer />
+          <ToastContainer/>
           <GlobalStyles />
           <Routes />
         </MyThemeProvider>

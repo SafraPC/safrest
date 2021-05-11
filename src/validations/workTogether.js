@@ -12,6 +12,7 @@ export const formikEnhancer = withFormik({
 		email: yup.string().email().required(),
 		state: yup.string().ensure().required(),
 		city: yup.string().ensure().required(),
+		cv:yup.string().ensure().required(),
 	}),
 	mapPropsToValues: (props) => ({
 		name: "",
@@ -19,8 +20,10 @@ export const formikEnhancer = withFormik({
 		age: "",
 		state: "",
 		city: "",
+		cv: undefined,
 	}),
 	handleSubmit: (values) => {
 		console.log(values);
+		console.log("Enviou!");
 	},
 });

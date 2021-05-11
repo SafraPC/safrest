@@ -14,6 +14,14 @@ const workWithUsBR = {
     buttonSend:{
         text:"Enviar"
     },
+    errors:{
+      seeAll:{
+        text:"Parece que Tem Algo Errado! Verifique o Formulário"
+      },
+      cv:{
+        text:"Não Esqueça de Seu Curriculo!"
+      }
+    },
     secction: {
       label: "Insira seu Nome",
       input: "Nome",
@@ -54,6 +62,14 @@ const workWithUsEN = {
   form: {
     buttonSend:{
         text:"Send"
+    },
+    errors:{
+      seeAll:{
+        text:"Something´s Wrong!"
+      },
+      cv:{
+        text:"Don´t Forget your CV!"
+      }
     },
     secction: {
       label: "Enter your Name",

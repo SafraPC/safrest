@@ -8,6 +8,7 @@ outline:0;
 box-sizing:border-box;
 color:${(props) => props.theme.text}
 }
+
 a {
 text-decoration: none !important;
 }
@@ -45,6 +46,13 @@ body{
     -webkit-font-font-smoothing: antialiased !important;
     color:#333;
 }
+
+
+//TOAST GLOBAL OPTIONS
+.Toastify__toast-body{
+  color:white !important;
+}
+
 
 :root {
   --color-primary: #fff;

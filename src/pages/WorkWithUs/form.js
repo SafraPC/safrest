@@ -7,6 +7,8 @@ import { formikEnhancer } from "../../validations/workTogether";
 
 import MineSelect from "../../components/Select";
 import FileCard from "../../components/FileCard";
+import { toast } from "react-toastify";
+import { TOASTIFY_OPTIONS } from "../../styles/toast";
 
 const MyForm = (props) => {
   const {
@@ -34,6 +36,23 @@ const MyForm = (props) => {
     if (!values.state) return;
     cities(values.state).then(setCidades).catch(console.error);
   }, [values.state]);
+
+  useEffect(()=>{
+console.log(values)
+  },[values])
+
+  const handleErrors = ()=>{
+    if(Object.values(errors).length){
+      if(!cv || cv === undefined){
+        toast.error(i18n.t('pageWWU.form.errors.seeAll.text')+"\n"+i18n.t('pageWWU.form.errors.cv.text'),TOASTIFY_OPTIONS)
+      }else{
+        toast.error(i18n.t('pageWWU.form.errors.seeAll.text'),TOASTIFY_OPTIONS)
+      }
+    }else if(!cv || cv === undefined){
+      toast.error(i18n.t('pageWWU.form.errors.cv.text'),TOASTIFY_OPTIONS)
+    }
+   
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -113,12 +132,20 @@ const MyForm = (props) => {
         translateText={i18n.t("pageWWU.form.secction5.input")}
       />
       <section>
-        <label htmlFor="myCV">{i18n.t("pageWWU.form.secction6.label")}</label>
-        <input type="file" id="myCV" onChange={(e)=>setCv(e.target.files[0])} />
+        <label htmlFor="cv">{i18n.t("pageWWU.form.secction6.label")}</label>
+        <input
+        id="cv"
+        type="file"
+        name="cv"
+        onChange={(e)=>{
+          setCv(e.target.files[0]);
+          setFieldValue("cv",e.target.files[0])}}
+        onBlur={handleBlur}
+      />
       </section>
      
-     <FileCard  myFile={cv} handleClose={()=>(setCv(undefined))}/>
-      <button type="submit">{i18n.t("pageWWU.form.buttonSend.text")}</button>
+     <FileCard  myFile={cv} handleClose={()=>{setCv(undefined);setFieldValue("cv",undefined)}}/>
+      <button type="submit" onClick={()=>(handleErrors())}>{i18n.t("pageWWU.form.buttonSend.text")}</button>
     </form>
   );
 };
