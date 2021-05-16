@@ -14,6 +14,9 @@ const workWithUsBR = {
     text:"Total de Propostas: "
   },
   form: {
+    success:{
+      text:"Formulário Enviado com Sucesso!"
+    },
     buttonSend:{
         text:"Enviar"
     },
@@ -66,6 +69,9 @@ const workWithUsEN = {
     text:"Total Propouses: "
   },
   form: {
+    success:{
+      text:"Successfully submitted form!"
+    },
     buttonSend:{
         text:"Send"
     },

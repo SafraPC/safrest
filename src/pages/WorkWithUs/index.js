@@ -8,18 +8,17 @@ import workImage from "../../assets/svgs/interview.svg";
 import MyForm from "./form";
 import api from "../../services/api";
 const WorkWithUs = () => {
-  const [totalCV,setTotalCV] = useState();	
+  const [totalCV, setTotalCV] = useState();
 
   const getCount = async () => {
-		const data =  await api.get("/work_with_us")
-		setTotalCV(data.data);	
-    console.log(totalCV?.total);
+    const data = await api.get("/work_with_us");
+    setTotalCV(data.data);
   };
 
   useEffect(() => {
-	getCount();
-  },[]);
-  
+    getCount();
+  }, []);
+
   return (
     <Page>
       <Header />
@@ -31,11 +30,13 @@ const WorkWithUs = () => {
         </Apresentation>
         <TForm>
           <div>
-           
             <label>{i18n.t("pageWWU.image.text")}</label>
             <img src={workImage} alt="CardMage" />
             <br></br>
-            <label>{i18n.t("pageWWU.backendCV.text")}{totalCV?.total}</label>
+            <label>
+              {i18n.t("pageWWU.backendCV.text")}
+              {totalCV?.total}
+            </label>
           </div>
           <MyForm />
         </TForm>

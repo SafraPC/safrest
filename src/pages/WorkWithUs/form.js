@@ -25,8 +25,8 @@ const MyForm = (props) => {
   const [cidades, setCidades] = useState([]);
   const [estados, setEstados] = useState([]);
 
-  //Get file from input 
-  const [cv,setCv] = useState();
+  //Get file from input
+  const [cv, setCv] = useState();
 
   useEffect(() => {
     states().then(setEstados).catch(console.error);
@@ -37,21 +37,25 @@ const MyForm = (props) => {
     cities(values.state).then(setCidades).catch(console.error);
   }, [values.state]);
 
-  useEffect(()=>{
-console.log(values)
-  },[values])
-
-  const handleErrors = ()=>{
-    if(Object.values(errors).length){
-      if(!cv || cv === undefined){ 
-        toast.error(i18n.t('pageWWU.form.errors.seeAll.text')+"\n , "+i18n.t('pageWWU.form.errors.cv.text'),TOASTIFY_OPTIONS)
-      }else{
-        toast.error(i18n.t('pageWWU.form.errors.seeAll.text'),TOASTIFY_OPTIONS)
+  const handleErrors = () => {
+    if (Object.values(errors).length) {
+      if (!cv || cv === undefined) {
+        toast.error(
+          i18n.t("pageWWU.form.errors.seeAll.text") +
+            "\n , " +
+            i18n.t("pageWWU.form.errors.cv.text"),
+          TOASTIFY_OPTIONS
+        );
+      } else {
+        toast.error(
+          i18n.t("pageWWU.form.errors.seeAll.text"),
+          TOASTIFY_OPTIONS
+        );
       }
-    }else if(!cv || cv === undefined){
-      toast.error(i18n.t('pageWWU.form.errors.cv.text'),TOASTIFY_OPTIONS)
+    } else if (!cv || cv === undefined) {
+      toast.error(i18n.t("pageWWU.form.errors.cv.text"), TOASTIFY_OPTIONS);
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -69,7 +73,7 @@ console.log(values)
         onChange={handleChange}
         onBlur={handleBlur}
       />
-    
+
       <span>
         {i18n.t("pageWWU.form.secction2.label")}
         <Req>*</Req>
@@ -133,18 +137,27 @@ console.log(values)
       <section>
         <label htmlFor="cv">{i18n.t("pageWWU.form.secction6.label")}</label>
         <input
-        id="cv"
-        type="file"
-        name="cv"
-        onChange={(e)=>{
-          setCv(e.target.files[0]);
-          setFieldValue("cv",e.target.files[0])}}
-        onBlur={handleBlur}
-      />
+          id="cv"
+          type="file"
+          name="cv"
+          onChange={(e) => {
+            setCv(e.target.files[0]);
+            setFieldValue("cv", e.target.files[0]);
+          }}
+          onBlur={handleBlur}
+        />
       </section>
-     
-     <FileCard  myFile={cv} handleClose={()=>{setCv(undefined);setFieldValue("cv",undefined)}}/>
-      <button type="submit" onClick={()=>(handleErrors())}>{i18n.t("pageWWU.form.buttonSend.text")}</button>
+
+      <FileCard
+        myFile={cv}
+        handleClose={() => {
+          setCv(undefined);
+          setFieldValue("cv", undefined);
+        }}
+      />
+      <button type="submit" onClick={() => handleErrors()}>
+        {i18n.t("pageWWU.form.buttonSend.text")}
+      </button>
     </form>
   );
 };
