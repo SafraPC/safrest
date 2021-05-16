@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { Apresentation, Page, ScreenView, TForm } from "../../styles/default";
 import { Header } from "../../components/Header";
@@ -18,6 +19,7 @@ const WorkWithUs = () => {
   useEffect(() => {
 	getCount();
   },[]);
+  
   return (
     <Page>
       <Header />

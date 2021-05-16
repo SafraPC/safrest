@@ -1,5 +1,6 @@
 import { withFormik } from "formik";
 import * as yup from "yup";
+import api from "../services/api";
 
 export const formikEnhancer = withFormik({
 	validationSchema: yup.object().shape({
@@ -22,8 +23,12 @@ export const formikEnhancer = withFormik({
 		city: "",
 		cv: undefined,
 	}),
-	handleSubmit: (values) => {
-		console.log(values);
-		console.log("Enviou!");
+	handleSubmit: async (values) => {
+		console.log(values.cv);
+		try{
+			await api.put('work_with_us',{...values});
+	}catch(error){
+		console.log(error);
+	}
 	},
 });

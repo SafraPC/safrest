@@ -51,7 +51,6 @@ console.log(values)
     }else if(!cv || cv === undefined){
       toast.error(i18n.t('pageWWU.form.errors.cv.text'),TOASTIFY_OPTIONS)
     }
-   
   }
 
   return (
