@@ -10,6 +10,9 @@ const workWithUsBR = {
   image: {
     text: "Trabalhe Conosco!",
   },
+  backendCV:{
+    text:"Total de Propostas: "
+  },
   form: {
     buttonSend:{
         text:"Enviar"
@@ -58,6 +61,9 @@ const workWithUsEN = {
   },
   image: {
     text: "Work With Us!",
+  },
+  backendCV:{
+    text:"Total Propouses: "
   },
   form: {
     buttonSend:{

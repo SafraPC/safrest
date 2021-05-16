@@ -12,7 +12,8 @@ const WorkWithUs = () => {
   const getCount = async () => {
 		const data =  await api.get("/work_with_us")
 		setTotalCV(data.data);	
-};
+    console.log(totalCV?.total);
+  };
 
   useEffect(() => {
 	getCount();
@@ -28,8 +29,11 @@ const WorkWithUs = () => {
         </Apresentation>
         <TForm>
           <div>
+           
             <label>{i18n.t("pageWWU.image.text")}</label>
             <img src={workImage} alt="CardMage" />
+            <br></br>
+            <label>{i18n.t("pageWWU.backendCV.text")}{totalCV?.total}</label>
           </div>
           <MyForm />
         </TForm>
