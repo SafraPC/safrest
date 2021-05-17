@@ -3,6 +3,7 @@ import { footerEN } from "../../components/Footer/translate";
 import { homeEN } from "../../pages/Home/translate";
 import { workWithUsEN} from "../../pages/WorkWithUs/translate";
 import { notFoundEN } from "../../pages/NotFound/translate";
+import { contactEN } from "../../pages/Contact/translate";
 
 export const messages = {
   en: {
@@ -13,6 +14,9 @@ export const messages = {
       },
       notFound:{
         ...notFoundEN
+      },
+      pageContact:{
+        ...contactEN
       },
       //Page Work With Us
       pageWWU:{
