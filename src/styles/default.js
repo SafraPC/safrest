@@ -66,7 +66,7 @@ export const TForm = styled.section`
     }
 
     > img {
-      padding:1rem;
+      padding: 1rem;
       height: 70%;
       width: 100%;
     }
@@ -106,7 +106,7 @@ export const TForm = styled.section`
       > label {
         color: ${(props) => props.theme.text};
         font-size: 18px;
-		margin:0;
+        margin: 0;
         cursor: pointer;
       }
       > input[type="file"] {
@@ -181,4 +181,16 @@ export const Apresentation = styled.section`
       color: ${(props) => props.theme.textColored};
     }
   }
+`;
+
+//Text Area model
+export const MyTextArea = styled.textarea`
+  width: 75%;
+  resize: none;
+  margin: 0 auto;
+  padding: 1rem;
+  margin-top: 1rem;
+
+  border-color: ${(props) =>
+    props.error === true ? "var(--color-high-red)" : ""} !important;
 `;

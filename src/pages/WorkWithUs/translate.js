@@ -26,6 +26,9 @@ const workWithUsBR = {
       },
       cv:{
         text:"Não Esqueça de Seu Curriculo!"
+      },
+      server:{
+        text:"O Formulário está correto, mas algo deu errado!"
       }
     },
     secction: {
@@ -81,6 +84,9 @@ const workWithUsEN = {
       },
       cv:{
         text:"Don´t Forget your CV!"
+      },
+      server:{
+        text:"The Form is Right! but something happened.."
       }
     },
     secction: {
