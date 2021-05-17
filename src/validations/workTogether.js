@@ -30,8 +30,9 @@ export const formikEnhancer = withFormik({
     data.append("city", values.city);
     data.append("cv", values.cv);
     try {
-      await api.put("work_with_us", data);
-      toast.success(i18n.t("pageWWU.form.success.text"), TOASTIFY_OPTIONS);
+     const resul =  await api.put("work_with_us", data);
+     console.log(resul);
+     toast.success(i18n.t("pageWWU.form.success.text"), TOASTIFY_OPTIONS);
     } catch (error) {
       toast.error(i18n.t("Something Happened!"), TOASTIFY_OPTIONS);
     }
